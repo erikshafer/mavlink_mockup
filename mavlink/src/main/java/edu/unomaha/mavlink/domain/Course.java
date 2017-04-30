@@ -13,30 +13,34 @@ public class Course {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "course_id", nullable = false, updatable = false)
+	@Column(name = "COURSE_ID", nullable = false, updatable = false)
 	private Long id;
 
-	@Column(name = "course_name")
+	@Column(name = "COURSE_NAME")
 	private String name;
 
-	@Column(name = "course_code")
+	@Column(name = "COURSE_CODE")
 	private String code;
 
-	@Column(name = "course_description")
+	@Column(name = "COURSE_DESCRIPTION")
 	private String description;
 
-	@Column(name = "course_active")
+	@Column(name = "COURSE_CREDITS")
+	private Integer credits;
+
+	@Column(name = "COURSE_ACTIVE")
 	private Boolean active;
 
 	public Course() {
 		super();
 	}
 
-	public Course(Long id, String name, String code, String description, Boolean active) {
+	public Course(Long id, String name, String code, String description, Integer credits, Boolean active) {
 		this.id = id;
 		this.name = name;
 		this.code = code;
 		this.description = description;
+		this.credits = credits;
 		this.active = active;
 	}
 
@@ -78,6 +82,14 @@ public class Course {
 
 	public void setActive(Boolean active) {
 		this.active = active;
+	}
+
+	public Integer getCredits() {
+		return credits;
+	}
+
+	public void setCredits(Integer credits) {
+		this.credits = credits;
 	}
 
 }

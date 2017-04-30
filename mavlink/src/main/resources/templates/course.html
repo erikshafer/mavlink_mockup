@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MavLink</title>
+<link rel="stylesheet"
+    href="https://code.jquery.com/ui/1.12.1/themes/ui-darkness/jquery-ui.css" />
+<link rel="stylesheet"
+    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<style>
+.home-logo {
+    margin-left: 20px;
+    display: inline-block;
+}
+.home-text {
+    display: inline-block;
+    color: #fff;
+    font-family: 'urwgroteskligregular';
+    font-size: 1.5em;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+ul.help-links {
+	margin:20px 4px;
+    list-style: none;
+    padding: 0;
+}
+ul.help-links li {
+	font-size:.85em;
+    line-height:25px;
+}
+</style>
+</head>
+<body>
+    <header class="container" style="background-color:black; height:70px; border-bottom:4px solid red; vertical-align:middle">
+        <div style="display: block;">
+            <img class="img-responsive" src="/mavlink/images/logo-o-2.png" alt="banner" style="height:50px; width:48.38px; float:left;" />
+            <div class="home-text" style="float:left;">MavLINK</div>
+        </div>
+    </header>
+    <div class="container">
+        <!--
+        <div class="row">
+            <h1>Login.</h1>
+        </div>
+         -->
+		<div class="row">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                    	<h2 th:text="${course.name}" id="name"/>
+                    </div>
+                    <div class="panel-body">
+						<h4 th:text="${course.code}" id="code"/>
+						<h5 th:text="${course.credits}" id="credits"/>
+						<p th:text="${course.description}" id="description"/>
+                    </div>
+                    <div class="panel-footer">
+                    	<p class="text-muted">Erik Shafer :: CSCI-3830 Advanced Java Programming</p>
+                    </div>
+                </div>
+            </div>
+		</div>
+    </div>
+</body>
+</html>
