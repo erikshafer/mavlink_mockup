@@ -14,11 +14,17 @@ public class User {
 	@Column(name = "USER_ID", nullable = false, updatable = false)
 	private Long id;
 
-	@Column(name = "USER_NAME")
+	@Column(name = "USER_USERNAME")
 	private String username;
 
 	@Column(name = "USER_PASSWORD")
 	private String password;
+
+	@Column(name = "USER_FIRST_NAME")
+	private String firstName;
+
+	@Column(name = "USER_LAST_NAME")
+	private String lastName;
 
 	@Column(name = "USER_MAJOR")
 	private String major;
@@ -34,11 +40,14 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(Long id, String username, String password, String major, String email, boolean enabled) {
+	public User(Long id, String username, String password, String firstName, String lastName, String major,
+	        String email, boolean enabled) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.major = major;
 		this.email = email;
 		this.enabled = enabled;
@@ -90,6 +99,22 @@ public class User {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 }
