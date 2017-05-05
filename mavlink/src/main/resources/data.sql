@@ -16,3 +16,6 @@ INSERT INTO COURSE (COURSE_NAME, COURSE_CODE, COURSE_DESCRIPTION, COURSE_CREDITS
            ('Introduction to Neuroscience', 'NEUR-1500', 'This course is designed for neuroscience majors or students who are contemplating neuroscience as a major. The course will explore how individual neurons operate, how collections of neurons integrate with each other, and how larger scale collections lead to the expression of behavior, emotion, and cognition.', '3', 'TRUE'),
            ('Calculus I', 'MATH-1950', 'This is a course in plane analytic geometry emphasizing the study of functions, limits, derivatives and applications, and an introduction to integration.', '5', 'TRUE'),
 		   ('Calculus II', 'MATH-1960', 'This course introduces applications of integration, techniques of integration, infinite sequences and series, vectors in the plane, and polar functions. A mathematical software package is introduced, with required assignments.', '5', 'FALSE');
+		   
+INSERT INTO ROLE (ROLE_ID, NAME)
+	VALUES (1, 'ROLE_USER'), (2, 'ROLE_ADMIN');

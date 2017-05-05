@@ -12,4 +12,5 @@ public interface CourseRepository extends CrudRepository<Course, Long> {
 	List<Course> findByName(String name);
 	List<Course> findByCredits(Integer credits);
 	List<Course> findByActive(Boolean bool);
+	List<Course> findByCodeStartingWith(String startingStr);
 }

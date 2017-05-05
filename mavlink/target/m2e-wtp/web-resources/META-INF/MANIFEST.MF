@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: mavlink
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: eriks
+Built-By: TagnikHome
 Implementation-Vendor-Id: edu.unomaha.mavlink
-Build-Jdk: 1.8.0_101
+Build-Jdk: 1.8.0_131
 Implementation-URL: http://projects.spring.io/spring-boot/mavlink/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.

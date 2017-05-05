@@ -1,60 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MavLink</title>
-<link rel="stylesheet"
-    href="https://code.jquery.com/ui/1.12.1/themes/ui-darkness/jquery-ui.css" />
-<link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-<style>
-.home-logo {
-    margin-left: 20px;
-    display: inline-block;
-}
-.home-text {
-    display: inline-block;
-    color: #fff;
-    font-family: 'urwgroteskligregular';
-    font-size: 1.5em;
-    vertical-align: middle;
-    margin-left: 10px;
-}
-ul.help-links {
-	margin:20px 4px;
-    list-style: none;
-    padding: 0;
-}
-ul.help-links li {
-	font-size:.85em;
-    line-height:25px;
-}
-</style>
-</head>
-<body>
-    <header class="container" style="background-color:black; height:70px; border-bottom:4px solid red; vertical-align:middle">
-        <div style="display: block;">
-            <img class="img-responsive" src="/mavlink/images/logo-o-2.png" alt="banner" style="height:50px; width:48.38px; float:left;" />
-            <div class="home-text" style="float:left;">MavLINK</div>
-        </div>
-    </header>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header"/>
+<body roleId="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<head th:replace="common/header :: navbar"/>
     <div class="container">
-        <!--
-        <div class="row">
-            <h1>Login.</h1>
-        </div>
-         -->
         <div class="row">
             <div class="main-center">
                 <div class="bg-danger" th:if="${param.error}">
-                    Invalid username or password.
+                    <strong>Invalid username or password.</strong>
                 </div>
                 <div class="bg-danger" th:if="${param.logout}">
-                    You have been logged out.
+                    <strong>You have been logged out.</strong>
                 </div>
-                <form class="form-signin" th:action="@{/login}" method="post">
+                <form class="form-signin" th:action="@{/index}" method="post">
                     <h2 class="form-signin-heading">Please sign in</h2>
                     <div class="form-group">
                         <label for="username" class="sr-only">Username</label>
@@ -74,21 +32,21 @@ ul.help-links li {
                     class="btn btn-cta">
   						<span class="glyphicon glyphicon-lock" aria-hidden="true"></span> Sign In
 					</button>
+                    <hr />
                     <ul class="help-links">
+                        <li><a data-config="" th:href="@{/signup/}">Sign Up for MavLink</a></li>
 						<li><a data-config="forgotPasswordLink" target="_blank" href="https://trueyou.nebraska.edu/idm/user/login.jsp">Forgot Password?</a></li>
 			            <li><a data-config="" target="_blank" href="mailto:unohelpdesk@unomaha.edu">Need Help?</a></li>
 		            	<li><a data-config="" th:href="@{/courses/}">Class Search</a></li>
+
                     </ul>
                 </form>
                 
-                <hr />
-                <!-- 
-                <div class="form-group ">
-                    <a type="submit" class="btn btn-info btn-lg btn-block login-button" th:href="@{/signup}">Sign up!</a>
-                </div>
-                 -->
             </div>
         </div>
     </div>
+
+<div th:replace="common/header :: body-bottom-scripts" />
+
 </body>
 </html>

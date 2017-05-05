@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common-header">
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="(A MOCK UP OF...)The Nebraska Student Information System services student, faculty and staff users for both the university and state college systems."/>
+    <meta name="author" content="Erik Shafer"/>
+    <title>MavLink</title>
+    
+    <!-- Website Font style -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css" />
+
+    <!-- Google Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css' />
+    <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css' />
+    
+    <link rel="stylesheet"
+        href="https://code.jquery.com/ui/1.12.1/themes/ui-darkness/jquery-ui.css" />
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+        href="https://campuscontent.nebraska.edu/uno/dashboard/2017/1/2/css/mavlink.css" />
+    <link rel="stylesheet"
+        href="/mavlink/css/mavlink/default-002.css" />
+</head>
+<!-- Some quick adjustments to CSS -->
+<style>
+.navbar-default .navbar-nav>li>a {
+    color: #d6d6d6;
+}
+#srch_form .navbar.navbar-default, .navbar.navbar-default {
+    background-color: #545454;
+    background-image: none;
+    /* border-top-left-radius: 7px; */    
+    /* border-top-right-radius: 7px; */
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom:0;
+}
+.home-logo {
+    margin-left: 20px;
+    display: inline-block;
+}
+.home-text {
+    display: inline-block;
+    color: #fff;
+    font-family: 'urwgroteskligregular';
+    font-size: 1.5em;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+ul.help-links {
+    margin:20px 4px;
+    list-style: none;
+    padding: 0;
+}
+ul.help-links li {
+    font-size:.85em;
+    line-height:25px;
+}
+</style>
+<body>
+<!-- Navigation -->
+<div th:fragment="navbar">
+    <div style="background-color:black; width:100%; height:70px; border-bottom:4px solid red; vertical-align:middle; display: block;">
+        <img class="img-responsive" src="/mavlink/images/logo-o-2.png" alt="banner" style="height:50px; width:48.38px; float:left;" />
+        <div class="home-text h3" style="float:left; color:#f6f6f6;">MavLINK</div>
+    </div>
+    <nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" th:href="@{/}">Home</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse  navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav" style="color:#B9B9B9;">
+                <li class="hidden">
+                    <a class="page-scroll" href="#page-top"></a>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#A1A1A1;">Courses<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a th:href="@{/courses/}">All</a></li>
+                        <li><a th:href="@{/courses/CSCI/}">Computer Science</a></li>
+                        <li><a th:href="@{/courses/CIST/}">Info Science and Tech</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#A1A1A1;">Admin <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a th:href="@{/courses/}">Edit Users</a></li>
+                        <li><a th:href="@{/courses/CSCI/}">Edit Courses</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:#A1A1A1;">Me <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a th:href="@{/profile/}">Profile</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a th:href="@{/login/}">Login</a></li>
+                        <li><a th:href="@{/logout/}">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+</div>
+
+<div th:fragment="body-bottom-scripts">
+    <div class="container">
+		<div class="row justify-content-md-centerr">
+    		<div class="panel-group">
+    			<div class="panel panel-default">
+    				<div class="panel-body" style="max-height:40px;margin-left:auto; margin-right:auto;">
+    					<p class="text-muted text-center small">Erik Shafer :: CSCI-3830 Advanced Java Programming</p>
+    				</div>
+    			</div>
+    		</div>
+		</div>
+    </div>
+    <!-- jQuery -->
+    <script src="/mavlink/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/mavlink/js/bootstrap.min.js"></script>
+    <script src="/mavlink/js/jquery.easing.min.js"></script>
+
+    <!--bootbox-->
+    <script src="/mavlink/js/bootbox.min.js"></script>
+
+    <!--data table-->
+    <script src="/mavlink/js/jquery.dataTables.min.js"></script>
+    <script src="/mavlink/js/dataTables.bootstrap.min.js"></script>
+    
+    <!--main js-->
+    <script src="/mavlink/js/main.js"></script>
+
+</div>
+
+</body>
+</html>

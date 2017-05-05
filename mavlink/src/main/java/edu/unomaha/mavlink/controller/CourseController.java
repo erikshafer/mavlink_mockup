@@ -29,6 +29,20 @@ public class CourseController {
 		model.addAttribute("courses", courseRepository.findByActive(true));
 		return "courses";
 	}
+	
+	// View all of the active courses
+	@RequestMapping(value = "/CSCI/", method = RequestMethod.GET)
+	public String viewAllCSCICourses(Model model) {
+		model.addAttribute("courses", courseRepository.findByCodeStartingWith("CSCI"));
+		return "courses";
+	}
+	
+	// View all of the active courses
+	@RequestMapping(value = "/CIST/", method = RequestMethod.GET)
+	public String viewAllCISTCourses(Model model) {
+		model.addAttribute("courses", courseRepository.findByCodeStartingWith("CIST"));
+		return "courses";
+	}
 
 	// View all of the courses of a certain credit amount
 	@RequestMapping(value = "/credit/{credit}", method = RequestMethod.GET)

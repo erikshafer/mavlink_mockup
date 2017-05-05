@@ -1,119 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MavLink</title>
-<link rel="stylesheet"
-    href="https://code.jquery.com/ui/1.12.1/themes/ui-darkness/jquery-ui.css" />
-<link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-<link rel="stylesheet"
-    href="https://campuscontent.nebraska.edu/uno/dashboard/2017/1/2/css/mavlink.css" />
-<link rel="stylesheet"
-    href="https://www.unomaha.edu/_files/css/mavlink/default-002.css" />
-<style>
-.home-logo {
-    margin-left: 20px;
-    display: inline-block;
-}
-.home-text {
-    display: inline-block;
-    color: #fff;
-    font-family: 'urwgroteskligregular';
-    font-size: 1.5em;
-    vertical-align: middle;
-    margin-left: 10px;
-}
-ul.help-links {
-	margin:20px 4px;
-    list-style: none;
-    padding: 0;
-}
-ul.help-links li {
-	font-size:.85em;
-    line-height:25px;
-}
-#main {
-    max-width: 100%;
-    margin: 0 20px;
-    padding-top: 100px;
-}
-.login {
-    margin: 40px auto;
-    max-width: 250px;
-}
-input[type=text], input[type=password] {
-	background-color:#f8f8f8;
-	border:thin solid #f2f2f2;
-	-webkit-box-shadow: inset 1px 1px 0px #ccc;
-    box-shadow: inset 1px 1px 0px #ccc;
-}
-label {
-	color:#4A4A4A;
-	font-size: .95em;
-    margin: 10px 4px 0 4px;
-}
-ul.help-links {
-	margin:20px 4px;
-    list-style: none;
-    padding: 0;
-}
-ul.help-links li {
-	font-size:.85em;
-    line-height:25px;
-}
-.alert {
-    max-width: 600px;
-    margin: 40px auto;
-}
-span.glyphicon.glyphicon-lock {
-    background-color: #d71920;
-    padding: 10px;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
-    margin: -7px 5px -7px -12px;
-    border-bottom: 1px solid #d71920;
-    color: #fff;
-}
-.btn-cta {
-    background: #0e0e0e;
-    border-bottom: 2px solid #9C9C9C;
-    border-right: 2px solid #9C9C9C;
-    border-top: none;
-    border-left: none;
-    text-transform: uppercase;
-    color: #fff;
-    border-radius: 5px;
-	font-family:'urwgroteskregular';
-}
-.btn-cta:hover, .btn-cta:active, .btn-cta:focus {
-	color:#ccc;
-}
-.login button.btn.btn-cta {
-    margin: 30px auto;
-    display: block;
-    min-width: 250px;
-    text-align: left;
-}
-
-</style>
-</head>
-<body>
-    <header class="container" style="background-color:black; height:70px; border-bottom:4px solid red; vertical-align:middle">
-        <div style="display: block;">
-            <img class="img-responsive" src="/mavlink/images/logo-o-2.png" alt="banner" style="height:50px; width:48.38px; float:left;" />
-            <div class="home-text" style="float:left;">MavLINK</div>
-        </div>
-    </header>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header"/>
+<body roleId="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<head th:replace="common/header :: navbar"/>
     <div class="container">
-        <!--
         <div class="row">
-            <h1>Login.</h1>
-        </div>
-         -->
-		<div class="row">
             <div class="panel-group">
                 <div class="panel panel-default">
                     <div class="panel-heading"><h2>Courses</h2></div>
@@ -135,12 +26,13 @@ span.glyphicon.glyphicon-lock {
             				</tbody>
             			</table>
                     </div>
-                    <div class="panel-footer">
-                    	<p class="text-muted">Erik Shafer :: CSCI-3830 Advanced Java Programming</p>
-                    </div>
                 </div>
             </div>
 		</div>
     </div>
+
+
+<div th:replace="common/header :: body-bottom-scripts" />
+
 </body>
 </html>
