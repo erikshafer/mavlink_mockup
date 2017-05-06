@@ -27,9 +27,6 @@ public class UserServiceImpl implements UserService{
 
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
-    
-//    @Autowired
-//    private AccountService accountService;
 	
 	public void save(User user) {
         userDao.save(user);
@@ -58,10 +55,6 @@ public class UserServiceImpl implements UserService{
             }
 
             user.getUserRoles().addAll(userRoles);
-
-//            user.setPrimaryAccount(accountService.createPrimaryAccount());
-//            user.setSavingsAccount(accountService.createSavingsAccount());
-
             localUser = userDao.save(user);
         }
 
@@ -113,4 +106,9 @@ public class UserServiceImpl implements UserService{
         userDao.save(user);
         System.out.println(username + " is disabled.");
     }
+
+	@Override
+	public User findById(Long id) {
+		return userDao.findById(id);
+	}
 }

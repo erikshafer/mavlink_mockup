@@ -16,7 +16,6 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import edu.unomaha.mavlink.repository.UserSecurityService;
 
-
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled=true)
@@ -31,58 +30,43 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private static final String SALT = "salt"; // Salt should be protected carefully
 
     @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
+    public BCryptPasswordEncoder passwordEncoder() {	// SHA-1
         return new BCryptPasswordEncoder(12, new SecureRandom(SALT.getBytes()));
     }
 
-    private static final String[] PUBLIC_MATCHERS = {
-            "/webjars/**",
-            "/css/**",
-            "/js/**",
-            "/images/**",
-            "/pages/**",
-            "/",
-            "/about/**",
-            "/contact/**",
-            "/error/**/*",
-            "/console/**",
-            "/h2/**",
-            "/h2-console/**",
-            "/signup/**",
-            "/index",
-            "/index/",
-            "/courses/**"
-    };
-
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception { 	
         http
-                .authorizeRequests().
-//                antMatchers("/**").
-                antMatchers(PUBLIC_MATCHERS).
-                permitAll().anyRequest().authenticated();
-	
-        http.authorizeRequests().antMatchers("/").permitAll().and()
-        .authorizeRequests().antMatchers("/h2-console/**").permitAll();
-        
-        http.headers().frameOptions().disable();
-
-
-        http
-                .csrf().disable().cors().disable()
-                .formLogin().failureUrl("/index?error").defaultSuccessUrl("/profile").loginPage("/index").permitAll()
+		        .authorizeRequests()                                            
+				.antMatchers("/", "/css/**", "/js/**", "/images/**",
+						     "/courses/**", "/signup/**", "/password/**",
+						     "/error/**/", "/index").permitAll()
+				.antMatchers("/admin/**").hasRole("ADMIN")           
+				.anyRequest().authenticated().and()
+				.formLogin().failureUrl("/index?error").defaultSuccessUrl("/home/").loginPage("/index").permitAll()
                 .and()
                 .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/index?logout").deleteCookies("remember-me").permitAll()
                 .and()
                 .rememberMe();
+	
+        http
+        		.authorizeRequests().antMatchers("/h2-console/**").permitAll();
+        
+        http
+        		.headers().frameOptions().disable();
+
+        http
+        		.csrf().disable().cors().disable();
+
+        http
+        		.exceptionHandling().accessDeniedPage("/index?error");
     }
-
-
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 //    	 auth.inMemoryAuthentication().withUser("user").password("password").roles("USER"); //This is in-memory authentication
-        auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
+    	auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN");
+    	auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
     }
 
 

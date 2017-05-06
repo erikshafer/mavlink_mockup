@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header"/>
+<body roleId="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<head th:replace="common/header :: navbar"/>
+    <div class="container">
+        <div class="row">
+            <div class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                    	<h2 th:text="${course.name}" id="name"/>
+                    </div>
+                    <div class="panel-body">
+						<h4 th:text="${course.code}" id="code"/>
+						<h5 th:text="${course.credits}" id="credits"/>
+						<p th:text="${course.description}" id="description"/>
+                    </div>
+                </div>
+            </div>
+		</div>
+    </div>
+
+
+<div th:replace="common/header :: body-bottom-scripts" />
+
+</body>
+</html>

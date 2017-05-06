@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="common/header :: common-header"/>
+<body roleId="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+<head th:replace="common/header :: navbar"/>
+<div class="container">
+    <div class="row main">
+        <div class="col-xs-12">
+        		<div class="row">
+                    <div class="panel-group">
+                        <div class="panel panel-danger">
+                            <div class="panel-heading page-heading gutter-15"><strong><p th:text="'Welcome ' + ${user.firstName}" /></strong></div>
+                            <div class="panel-body">
+                                <strong><p>Please take a look at the courses available via the navigation bar. Admins can also browse and edit user records, while register users can only edit their own profiles</p></strong>
+                                <hr />
+                                <p>The University of Nebraska Omaha offers the best available resources to help make this happen, including strong ties with industry and community leaders in metropolitan Omaha. Our dedicated faculty is a source of great pride for the college, both in the classroom and in the research lab. We also take pride in our students, who are some of the top competitors in IT.</p>
+                            </div>
+                        </div>
+                    </div>
+        		</div>
+        </div>
+    </div>
+</div>
+
+
+<div th:replace="common/header :: body-bottom-scripts"/>
+
+</body>
+</html>

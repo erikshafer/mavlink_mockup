@@ -1,7 +1,5 @@
 package edu.unomaha.mavlink.controller;
-
 import java.security.Principal;
-import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,14 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import edu.unomaha.mavlink.domain.User;
 import edu.unomaha.mavlink.domain.security.UserRole;
 import edu.unomaha.mavlink.repository.RoleDao;
-import edu.unomaha.mavlink.repository.UserRepository;
 import edu.unomaha.mavlink.repository.UserService;
 
 @Controller
 public class HomeController {
-
-	@Autowired
-	private UserRepository userRepository;
 
 	@Autowired
 	private UserService userService;
@@ -38,6 +32,14 @@ public class HomeController {
 	@RequestMapping("/index")
 	public String index() {
 		return "index";
+	}
+	
+	@RequestMapping("/home/")
+	public String index(Principal principal, Model model) {
+        User user = userService.findByUsername(principal.getName());
+
+        model.addAttribute("user", user);
+		return "home";
 	}
 
 	@RequestMapping("/login")
@@ -65,13 +67,6 @@ public class HomeController {
 			return "signup";
 		} else {
 			Set<UserRole> userRoles = new HashSet<>();
-			// Standard naming convention for Spring Security. ROLE, underscore,
-			// ROLE NAME in all caps.
-			// This is important as it'll be the basis for user authentication.
-			// "ROLE_USER" needs to be added to the `role` table otherwise
-			// registration will not work.
-			// 04-04-2017: I've added code to schema.sql and data.sql that will
-			// take care of this.
 			userRoles.add(new UserRole(user, roleDao.findByName("ROLE_USER")));
 			userService.createUser(user, userRoles);
 			return "redirect:/";

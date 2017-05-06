@@ -1,3 +1,4 @@
+-- Data copied from UNO's website
 INSERT INTO COURSE (COURSE_NAME, COURSE_CODE, COURSE_DESCRIPTION, COURSE_CREDITS, COURSE_ACTIVE)
 	VALUES ('Computer Science Principles', 'CSCI-1200', 'This course introduces students to the foundational principles of computer science. It aims to help students learn the essential thought processes used by computer scientists to solve problems, expressing those solutions as computer programs. The exercises and projects make use of mobile devices and other emerging platforms.', '3', 'TRUE'),
            ('Introduction to Computer Programming', 'CIST-1400', 'An introduction to programming within the context of a high level modern programming language. Coverage of fundamental programming concepts and program design; including arrays, user defined types, and objects. This course has an optional laboratory component in CIST 1404.', '3', 'TRUE'),
@@ -18,4 +19,18 @@ INSERT INTO COURSE (COURSE_NAME, COURSE_CODE, COURSE_DESCRIPTION, COURSE_CREDITS
 		   ('Calculus II', 'MATH-1960', 'This course introduces applications of integration, techniques of integration, infinite sequences and series, vectors in the plane, and polar functions. A mathematical software package is introduced, with required assignments.', '5', 'FALSE');
 		   
 INSERT INTO ROLE (ROLE_ID, NAME)
-	VALUES (1, 'ROLE_USER'), (2, 'ROLE_ADMIN');
+	VALUES (1, 'ROLE_USER'), (2, 'ROLE_ADMIN');	-- Only two permission levels
+	
+-- Default users. For account 6, which is admin, I've input the SHA-1 hashcode. It converts to "admin".
+-- So to log in as admin, it's "admin" / "admin"
+INSERT INTO USER (USER_ID, USERNAME, USER_PASSWORD, USER_FIRST_NAME, USER_LAST_NAME, USER_MAJOR, USER_EMAIL, USER_ENABLED)
+	VALUES ('1', 'jjroxsox', 	'pass',	'JJ',			'RoxMySox',		'Computer Science',		'jj@email.com',			'true'),
+		   ('2', 'laurenUserName', 	'pass',	'Lauren',		'K-Money',		'Computer Science',		'kopper@email.com',	'true'),
+		   ('3', 'inactiveUserA', 	'pass',	'inactiveUser',	'invUsTst',		'English',				'doesnt@matter.edu',	'false'),
+		   ('4', 'brainUser', 		'pass',	'Brian',		'HasALastName',	'Computer Engineering',	'brain@sky.net',		'true'),
+		   ('5', 'badStudent', 		'pass',	'Chad',			'Chadderson',	'English',				'chad@chad.chad',		'false'),
+		   ('6', 'admin', 		'$2a$12$DWCryEwHwbTYCegib92tk.5A2Fx2fz8THihTiGBy.nGHhMVQ03.oa',		'Admin',	'Admin',	'Business Administration',	'ADMIN@ADMIN.com',		'true');
+		   
+INSERT INTO USER_ROLE(USER_ROLE_ID, ROLE_ID, USER_ID)
+	VALUES ('1', '2', '5');	-- give user 5 (admin) role_id 2 (ROLE_ADMIN)
+		   
